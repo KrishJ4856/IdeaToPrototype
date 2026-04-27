@@ -23,7 +23,7 @@ export const webSearch = createTool({
   execute: async (args: any) => {
     // Handle both new and old mastra parameter styles
     const query = args.context ? args.context.query : args.query;
-    console.log(`[Tool: webSearch] Query: ${query}`);
+
 
     if (!process.env.EXA_API_KEY) {
       console.log(`[Tool: webSearch] WARN: EXA_API_KEY not set. Returning dummy data for testing.`);
@@ -40,7 +40,7 @@ export const webSearch = createTool({
           text: true
         }
       });
-      console.log("EXA TOOL CALL!!")
+
       return results.map((result: any) => ({
         title: result.title,
         url: result.url,

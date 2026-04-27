@@ -19,12 +19,7 @@ async function main() {
 
   try {
     const run = await workflow.createRun();
-    const result = await run.start({ inputData: { idea } });
-
-    console.log('\n✨ All done! Your prototype is ready.');
-    if (result.results && result.results.deployedUrl) {
-      console.log(`\n🌐 Live Prototype: ${result.results.deployedUrl}\n`);
-    }
+    await run.start({ inputData: { idea } });
   } catch (error) {
     console.error('\n❌ Error executing workflow:', error);
   }

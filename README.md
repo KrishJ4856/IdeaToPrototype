@@ -1,30 +1,64 @@
-# sample
+# 🚀 IdeaToPrototype: Concept to Live Prototype in 60 Seconds
 
-Welcome to your new [Mastra](https://mastra.ai/) project! We're excited to see what you'll build.
+> An autonomous multi-agent system that takes a single sentence idea and turns it into a fully designed, responsive, and deployed web application. Give it an app idea, Get back a link to a fully deployed app on Vercel!
 
-## Getting Started
+IdeaToPrototype leverages **Google Gemini**, **Mastra.ai**, and the **Vercel API** to simulate an entire software development agency in your terminal. From market research to writing code and deploying to production, IdeaFlow handles it all without human intervention (except for a quick PM interview!).
 
-Start the development server:
+---
 
-```shell
-npm run dev
+## 🎥 Demo
+
+
+
+---
+
+## 🧠 How It Works
+
+IdeaToPrototype orchestrates a pipeline of specialized AI agents, passing contextual data through a strict workflow:
+
+1. **💡 Idea Processing**: The user inputs a raw app idea.
+2. **🌐 Competitor Analysis**: The Agent searches the web in real-time to analyze market positioning and competitors.
+3. **🧑‍💼 Product Manager Interview**: The PM Agent reviews the research and interviews the user in the terminal with 5 critical questions to define the MVP scope.
+4. **🏗️ Architecture Design**: The Architect Agent generates a comprehensive Product Requirements Document (PRD) and designs the frontend architecture.
+5. **💻 Code Generation**: The 10x Developer Agent writes the complete HTML/CSS codebase, enforcing premium UI/UX aesthetics, responsiveness, and clean code.
+6. **🚀 Auto-Deployment**: The workflow bypasses local testing entirely by instantly deploying the generated codebase to **Vercel**, returning a live, shareable URL.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Mastra.ai](https://mastra.ai) (Agent Orchestration & Workflows)
+- **AI Models**: Google Gemini
+- **Deployment**: Vercel CLI & API
+- **Generated Stack**: Pure HTML5 & Vanilla CSS (Zero-build-step architecture for 100% reliability)
+- **Language**: TypeScript (Node.js)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install
+```bash
+git clone https://github.com/yourusername/ideaflow.git
+cd ideaflow
+npm install
 ```
 
-Open [http://localhost:4111](http://localhost:4111) in your browser to access [Mastra Studio](https://mastra.ai/docs/studio/overview). It provides an interactive UI for building and testing your agents, along with a REST API that exposes your Mastra application as a local service. This lets you start building without worrying about integration right away.
+### 2. Environment Variables
+Create a `.env` file in the root directory and add your API keys:
+```env
+GOOGLE_API_KEY=your_gemini_api_key
+EXA_API_KEY=your_exa_search_api_key
+VERCEL_TOKEN=your_vercel_access_token
+```
 
-You can start editing files inside the `src/mastra` directory. The development server will automatically reload whenever you make changes.
+### 3. Run the Magic
+Execute the workflow script. The CLI will prompt you for your app idea.
+```bash
+npx tsx src/test-workflow.ts
+```
 
-## Learn more
+### 4. Watch it Build
+Sit back and watch the agents talk to each other in the terminal. In less than a minute, you'll be handed a `https://...vercel.app` link to your live prototype!
 
-To learn more about Mastra, visit our [documentation](https://mastra.ai/docs/). Your bootstrapped project includes example code for [agents](https://mastra.ai/docs/agents/overview), [tools](https://mastra.ai/docs/agents/using-tools), [workflows](https://mastra.ai/docs/workflows/overview), [scorers](https://mastra.ai/docs/evals/overview), and [observability](https://mastra.ai/docs/observability/overview).
-
-If you're new to AI agents, check out our [course](https://mastra.ai/learn) and [YouTube videos](https://youtube.com/@mastra-ai). You can also join our [Discord](https://discord.gg/BTYqqHKUrf) community to get help and share your projects.
-
-## Deploy to the Mastra platform
-
-The [Mastra platform](https://projects.mastra.ai) provides two products for deploying and managing AI applications built with the Mastra framework:
-
-- **Studio**: A hosted visual environment for testing agents, running workflows, and inspecting traces
-- **Server**: A production deployment target that runs your Mastra application as an API server
-
-Learn more in the [Mastra platform documentation](https://mastra.ai/docs/mastra-platform/overview).
+---

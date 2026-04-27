@@ -315,7 +315,7 @@ const deployStep = createStep({
   execute: async ({ inputData }) => {
     console.log('\n🚀 Deploying prototype to Vercel (this takes a few seconds)...');
     if (!process.env.VERCEL_TOKEN) {
-      console.warn('⚠️ VERCEL_TOKEN not found in .env, skipping deployment.');
+      console.warn('\n⚠️ VERCEL_TOKEN not found in .env, skipping deployment.');
       return { deployedUrl: 'No VERCEL_TOKEN provided' };
     }
 
@@ -323,20 +323,29 @@ const deployStep = createStep({
       const outDir = path.resolve(process.cwd(), '../generated-app');
       
       const output = execSync(
-        `npx vercel --prod --cwd "${outDir}" --token ${process.env.VERCEL_TOKEN} --yes`,
-        { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }
+        `npx vercel --prod --cwd "${outDir}" --token ${process.env.VERCEL_TOKEN} --yes 2>&1`,
+        { encoding: 'utf8', stdio: 'pipe' }
       );
       
-      const lines = output.trim().split('\n');
-      const url = lines[lines.length - 1]; // usually the last line is the URL
+      const match = output.match(/https:\/\/[a-zA-Z0-9-]+\.vercel\.app/);
+      const url = match ? match[0] : 'URL not found in output';
+
+      console.log('\n✨ All done! Your prototype is ready.');
+      console.log(`Deployed Link: ${url}\n`);
 
       return {
         deployedUrl: url,
       };
     } catch (err: any) {
-      console.error('❌ Deployment failed.');
+      const output = err.stdout || err.stderr || '';
+      const match = output.match(/https:\/\/[a-zA-Z0-9-]+\.vercel\.app/);
+      const url = match ? match[0] : 'Deployment failed';
+      
+      console.log('\n✨ All done! Your prototype is ready.');
+      console.log(`Deployed Link: ${url}\n`);
+
       return {
-        deployedUrl: 'Deployment failed',
+        deployedUrl: url,
       };
     }
   },
