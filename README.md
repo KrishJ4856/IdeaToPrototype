@@ -8,7 +8,9 @@ IdeaToPrototype leverages **Google Gemini**, **Mastra.ai**, and the **Vercel API
 
 ## 🎥 Demo
 
-
+<img width="1918" height="1015" alt="Screenshot 2026-04-27 153742" src="https://github.com/user-attachments/assets/a8d07119-7126-473d-8992-a5b1143800a5" />
+<img width="1326" height="393" alt="Screenshot 2026-04-27 153821" src="https://github.com/user-attachments/assets/5dae9a38-659f-4054-9c44-732c41eb4204" />
+<img width="1887" height="962" alt="Screenshot 2026-04-27 153956" src="https://github.com/user-attachments/assets/a391e428-813d-4dd6-8adb-65f1eff2b102" />
 
 ---
 
